@@ -70,6 +70,29 @@ public class PassagemTest {
         // Verifica se está na página de compra
         assertEquals("Your flight from TLV to SFO has been reserved.",
                 driver.findElement(By.cssSelector("h2")).getText());
+
+        // Preenche o campo nome
+        driver.findElement(By.id("inputName")).sendKeys("Oliver Almada");
+
+        // Preenche o campo endereço boia
+        driver.findElement(By.id("address")).sendKeys("Rua Saboia, 179");
+
+        // Preenche a cidade
+        driver.findElement(By.id("city")).sendKeys("Ribeirão Pires");
+
+        // Preenche o estado
+        driver.findElement(By.id("state")).sendKeys("São Paulo");
+
+        // Selecionar cartão
+        WebElement cartaoOpcaoAmex = driver.findElement(By.id("cardType"));
+        cartaoOpcaoAmex.findElement(By.xpath("//option[text() = 'American Express']")).click();
+
+        // Escrever o nome que está no cartão
+        driver.findElement(By.id("state")).sendKeys("Oliver Francisco Ortega");
+
+        // Apertar botão
+        driver.findElement(By.cssSelector(".btn.btn-primary")).click();
+
     }// final do compra passagem
 
 } // final da classe PassagemTest
